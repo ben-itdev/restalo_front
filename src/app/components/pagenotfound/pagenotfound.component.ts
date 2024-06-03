@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pagenotfound.component.css']
 })
 export class PageNotFoundComponent {
-
+  homeButtonTitle: string = 'Return Home';
 }
