@@ -13,6 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppApiModule } from './services/api/app-api.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatDividerModule,
+    MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    NgxMaterialTimepickerModule,
     AppApiModule,
     HttpClientModule
   ],
