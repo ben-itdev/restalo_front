@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class HomeComponent implements OnInit {
   connected: boolean = false;
+  restaurantsButtonTitle: string = 'Liste des restaurants';
+  reservationsButtonTitle: string = 'Liste des réservations';
 
   constructor(private apiService: ApiService) {}
 

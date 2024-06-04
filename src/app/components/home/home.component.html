@@ -1,3 +1,22 @@
-<p>home works!</p>
-<p *ngIf="connected">Connecté</p>
-<p *ngIf="!connected">Pas connecté</p>
+<div class="main">
+    <h2>Site de gestion des restaurants et des réservations</h2>
+    <mat-divider></mat-divider>
+    <div style="margin-top: 2em;">
+        <div *ngIf="connected" style="display: flex; flex-direction: column; width: 50%; margin: 0 auto; gap: 10px;">
+            <a mat-raised-button
+                [title]="restaurantsButtonTitle"
+                [routerLink]="['/restaurant']">
+                {{ restaurantsButtonTitle }}
+            </a>
+            <a mat-raised-button
+                [title]="reservationsButtonTitle"
+                [routerLink]="['/reservation']">
+                {{ reservationsButtonTitle }}
+            </a>
+        </div>
+        <div *ngIf="!connected">
+            <p>Une erreur s'est produite durant la connexion à l'API</p>
+            <button mat-raised-button color="primary" aria-label="Bouton pour se connecter à l'api" (click)="isConnected()">Se connecter à l'API</button>
+        </div>
+    </div>
+</div>
