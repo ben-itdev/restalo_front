@@ -4,6 +4,8 @@ import { environment } from '../../environment/environment';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 import { HealthResponse } from './responses/healthresponse';
+import { SearchRestaurantResponse } from './responses/restaurantresponse';
+import { SearchRestaurantsRequest } from './requests/searchrestaurantsrequest';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,12 @@ export class ApiService {
     return subject.asObservable();
   }
 
+  searchRestaurants(params: SearchRestaurantsRequest): Observable<Array<SearchRestaurantResponse>> {
+    return this.http.post<Array<SearchRestaurantResponse>>(ApiService.SEARCH_RESTAURANTS_ENDPOINT, params);
+  }
+
   static HEALTH_ENDPOINT: string = `${environment.apiUrl}/health`;
+  static RESTAURANT_ENDPOINT: string = `${environment.apiUrl}/restaurant`;
+  static SEARCH_RESTAURANTS_ENDPOINT: string = `${environment.apiUrl}/search/restaurants`;
   static HEALTH_OK_STATUS: string = 'ok';
 }
