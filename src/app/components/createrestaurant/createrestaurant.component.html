@@ -1,0 +1,32 @@
+<div style="padding: 10px;">
+    <h2>Nouveau restaurant</h2>
+    <mat-dialog-content class="main">
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" [(ngModel)]="name" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>ID du Propriétaire</mat-label>
+            <input matInput type="text" [(ngModel)]="owner" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Capacité</mat-label>
+            <input matInput type="number" (min)="minCapacity" (max)="maxCapacity" [(ngModel)]="capacity" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label style="font-size: 15px;">Heure Ouverture / Fermeture</mat-label>
+            <input matInput [ngxTimepicker]="openhour" [format]=timePickerFormat [(ngModel)]="openHour">
+            <ngx-material-timepicker #openhour></ngx-material-timepicker>
+            <input matInput [ngxTimepicker]="closehour" [format]=timePickerFormat [(ngModel)]="closeHour">
+            <ngx-material-timepicker #closehour></ngx-material-timepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Durée d'une réservation</mat-label>
+            <input matInput type="number" (min)="minReservationDuration" (max)="maxReservationDuration" [(ngModel)]="reservationDuration">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close (click)="onCancel()">Annuler</button>
+        <button type="submit" mat-button [mat-dialog-close]="toCreateRestaurant()">Créer</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,9 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+::ng-deep .timepicker-backdrop-overlay[_ngcontent-ng-c2461858124],
+::ng-deep .timepicker-overlay[_ngcontent-ng-c2461858124] {
+    z-index: 1001 !important;
+}
