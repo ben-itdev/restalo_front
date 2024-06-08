@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api/api.service';
-import { SearchRestaurantsRequest } from 'src/app/services/api/requests/searchrestaurantsrequest';
-import { SearchRestaurantResponse } from 'src/app/services/api/responses/restaurantresponse';
+import { SearchRestaurantsRequest } from 'src/app/services/api/requests/searchrestaurants.request';
+import { SearchRestaurantResponse } from 'src/app/services/api/responses/searchrestaurant.response';
+import { CreateRestaurantComponent } from '../createrestaurant/createrestaurant.component';
+import { CreateRestaurantRequest } from 'src/app/services/api/requests/createrestaurant.request';
+import { CreateRestaurant } from 'src/app/services/api/objects/createrestaurant';
 
 @Component({
   selector: 'app-restaurant',
@@ -15,11 +19,11 @@ export class RestaurantComponent implements OnInit {
   timeFrom: string = '';
   timeTo: string = '';
 
-  constructor(private apiService : ApiService) {}
+  constructor(private apiService : ApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
-  searchRestaurants() {
+  searchRestaurants(): void {
     let params: SearchRestaurantsRequest = {};
 
     if (this.name !== '')
@@ -38,6 +42,18 @@ export class RestaurantComponent implements OnInit {
     this.apiService.searchRestaurants(params)
       .subscribe(response => {
         this.restaurants = response;
+      });
+  }
+
+  showCreateRestaurantForm(): void {
+    const dialogRef = this.dialog.open(CreateRestaurantComponent, {
+      width: "50%"
+    });
+
+    dialogRef.afterClosed()
+      .subscribe((result: CreateRestaurant) => {
+        if (result !== undefined)
+          this.apiService.createRestaurant(result);
       });
   }
 }

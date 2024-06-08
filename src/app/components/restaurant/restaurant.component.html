@@ -1,20 +1,23 @@
 <div class="main">
-    <h2>Liste des restaurants</h2>
+    <h2>Liste des Restaurants</h2>
     <mat-form-field>
-        <mat-label>Restaurant name</mat-label>
+        <mat-label>Nom du Restaurant</mat-label>
         <input matInput type="text" [(ngModel)]="name">
         <button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
             <mat-icon>close</mat-icon>
         </button>
     </mat-form-field>
     <mat-form-field style="margin-left: 1em;">
-        <mat-label>Heure arrivée / départ</mat-label>
+        <mat-label>Heure Arrivée / Départ</mat-label>
         <input matInput [ngxTimepicker]="timefrom" [format]=timePickerFormat [(ngModel)]="timeFrom">
         <ngx-material-timepicker #timefrom></ngx-material-timepicker>
         <input matInput [ngxTimepicker]="timeto" [format]=timePickerFormat [(ngModel)]="timeTo">
         <ngx-material-timepicker #timeto></ngx-material-timepicker>
     </mat-form-field>
-    <button mat-raised-button (click)="searchRestaurants()" style="margin-bottom: 1em;">Chercher</button>
+    <div style="display: flex; flex-direction: row;">
+        <button mat-raised-button (click)="searchRestaurants()" style="margin-bottom: 1em;">Chercher</button>
+        <button mat-raised-button (click)="showCreateRestaurantForm()" style="margin-bottom: 1em;">Ajouter</button>
+    </div>
     <mat-divider></mat-divider>
     <mat-list>
         <mat-list-item *ngFor="let restaurant of restaurants">
