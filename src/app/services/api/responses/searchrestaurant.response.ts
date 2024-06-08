@@ -1,8 +1,8 @@
-import { HoursResponse } from "./hoursresponse";
+import { Hours } from "../objects/hours";
 
 export interface SearchRestaurantResponse {
     capacity: number,
-    hours: HoursResponse,
+    hours: Hours,
     id: string,
     name: string
 }

@@ -1,4 +1,4 @@
-import { OpenedRequest } from "./openedrequest";
+import { OpenedRequest } from "../objects/opened";
 
 export interface SearchRestaurantsRequest {
     name?: string,
