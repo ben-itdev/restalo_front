@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { CreateRestaurantComponent } from './components/createrestaurant/createrestaurant.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     RestaurantComponent,
     ReservationComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    CreateRestaurantComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     FormsModule,
     NgxMaterialTimepickerModule,
     AppApiModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   bootstrap: [AppComponent]
 })
